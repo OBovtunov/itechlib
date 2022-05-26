@@ -10,6 +10,7 @@ services:
 
   library_service_application:
     container_name: ${LIBRARY_SERVICE_CONTAINER}
+    image: itechlib/library_service:serv
     restart: always
     build:
       context: ./server/java/itechlibrary/
@@ -58,10 +59,10 @@ services:
     build: 
       context: . 
       dockerfile: Dockerfile
+    image: itechlib/library_service:front  
     restart: always 
     ports: 
       - "3000:3000"
-      - "2222:2222"
     container_name: node_lib
     networks:
       - lib-network
@@ -69,6 +70,7 @@ services:
   nginx:
     container_name: nginx
     restart: always
+    image: itechlib/library_service:nginx
     build:
       context: ./NGINX/
       dockerfile: Dockerfile
