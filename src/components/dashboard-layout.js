@@ -50,7 +50,7 @@ export const DashboardLayout = (props) => {
             .catch((err) => {
                 console.log(err);
             });
-    }, []);
+    }, [dispatch, setAvatarData, setIsLoadingAvatar, uploadAvatar]);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
